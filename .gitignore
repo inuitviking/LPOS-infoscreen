@@ -1,0 +1,6 @@
+.docker/httpd/certs/*
+.docker/mosquitto/certs/*
+misc/*
+.docker/*/log/*log
+.docker/mosquitto/data/*.db
+.docker/mosquitto/passwords
