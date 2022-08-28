@@ -28,6 +28,22 @@ services:
       - ./.docker/httpd/log:/var/log/httpd
       - ./www:/var/www
     network_mode: bridge
+  mariadb:
+    image: inuitviking/rockymariadb:10.6-aarch64
+    restart: always
+    depends_on:
+      mqtt:
+        condition: service_started
+    ports:
+      - "127.0.0.1:3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: "t00r"
+      MYSQL_DATABASE: "test"
+      MYSQL_USER: "test"
+      MYSQL_PASSWORD: "test"
+    volumes:
+      - .docker/mariadb/mysql:/var/lib/mysql
+    network_mode: bridge
   mqtt-client:
     image: inuitviking/lpos-mqtt-client:0.0.1-aarch64
     restart: always
@@ -48,3 +64,4 @@ services:
         condition: service_started
     volumes:
       - ./misc/mqtt.csv:/usr/src/comet/mqtt.csv
+    network_mode: bridge
