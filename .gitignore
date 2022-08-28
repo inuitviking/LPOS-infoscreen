@@ -4,3 +4,4 @@ misc/*
 .docker/*/log/*log
 .docker/mosquitto/data/*.db
 .docker/mosquitto/passwords
+.docker/mariadb/mysql/*
