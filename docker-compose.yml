@@ -29,20 +29,19 @@ services:
       - ./www:/var/www
     network_mode: bridge
   mariadb:
+    env_file:
+      - .env
     image: inuitviking/rockymariadb:10.6-aarch64
     restart: always
     depends_on:
       mqtt:
         condition: service_started
     ports:
-      - "127.0.0.1:3306:3306"
-    environment:
-      MYSQL_ROOT_PASSWORD: "t00r"
-      MYSQL_DATABASE: "test"
-      MYSQL_USER: "test"
-      MYSQL_PASSWORD: "test"
+      - "3306:3306"
+    expose: [3306]
     volumes:
-      - .docker/mariadb/mysql:/var/lib/mysql
+      - ./.docker/mariadb/mysql:/var/lib/mysql
+      - ./.docker/mariadb/docker-entrypoint-initdb.d/init.sql:/docker-entrypoint-initdb.d/init.sql
     network_mode: bridge
   mqtt-client:
     image: inuitviking/lpos-mqtt-client:0.0.1-aarch64
