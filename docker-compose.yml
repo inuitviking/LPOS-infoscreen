@@ -30,8 +30,9 @@ services:
     network_mode: bridge
   mariadb:
     env_file:
-      - .env
+      - ./.docker/.env
     image: inuitviking/rockymariadb:10.6-aarch64
+    command: --init-file /docker-entrypoint-initdb.d/setup.sql
     restart: always
     depends_on:
       mqtt:
@@ -41,7 +42,7 @@ services:
     expose: [3306]
     volumes:
       - ./.docker/mariadb/mysql:/var/lib/mysql
-      - ./.docker/mariadb/docker-entrypoint-initdb.d/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./.docker/mariadb/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
     network_mode: bridge
   mqtt-client:
     image: inuitviking/lpos-mqtt-client:0.0.1-aarch64

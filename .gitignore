@@ -5,3 +5,5 @@ misc/*
 .docker/mosquitto/data/*.db
 .docker/mosquitto/passwords
 .docker/mariadb/mysql/*
+.docker/mariadb/docker-entrypoint-initdb.d/setup.sql
+.docker/.env
