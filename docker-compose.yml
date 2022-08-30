@@ -1,6 +1,7 @@
 services:
   mqtt:
     image: eclipse-mosquitto:2-openssl
+    hostname: mqtt
     restart: always
     ports:
       - "9883:9883"
@@ -16,6 +17,7 @@ services:
     network_mode: bridge
   httpd:
     image: inuitviking/rockyhttpd:2.4.51-aarch64
+    hostname: httpd
     restart: always
     ports:
       - "80:80"
@@ -32,6 +34,7 @@ services:
     env_file:
       - ./.docker/.env
     image: inuitviking/rockymariadb:10.6-aarch64
+    hostname: mariadb
     command: --init-file /docker-entrypoint-initdb.d/setup.sql
     restart: always
     depends_on:
@@ -45,16 +48,22 @@ services:
       - ./.docker/mariadb/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
     network_mode: bridge
   mqtt-client:
-    image: inuitviking/lpos-mqtt-client:0.0.1-aarch64
+    image: inuitviking/lpos-mqtt-client:0.2.0-aarch64
+    hostname: mqtt-client
     restart: always
+    expose: [3306]
     depends_on:
+      mariadb:
+        condition: service_started
       mqtt:
         condition: service_started
     volumes:
       - ./.docker/mosquitto/certs/ca-root-cert.crt:/usr/src/mqtt-client/certs/ca-root-cert.crt
       - ./misc/mqtt.csv:/usr/src/mqtt-client/mqtt.csv
+    network_mode: bridge
   comet:
     image: inuitviking/lpos-comet:0.0.1-aarch64
+    hostname: comet
     restart: always
     ports:
       - "8080:8080"
