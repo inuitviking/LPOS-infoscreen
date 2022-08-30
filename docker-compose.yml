@@ -56,18 +56,17 @@ services:
         condition: service_started
     volumes:
       - ./.docker/mosquitto/certs/ca-root-cert.crt:/usr/src/mqtt-client/certs/ca-root-cert.crt
-      - ./misc/mqtt.csv:/usr/src/mqtt-client/mqtt.csv
     network_mode: bridge
   comet:
-    image: inuitviking/lpos-comet:0.0.1-aarch64
+    image: inuitviking/lpos-comet:0.2.0-aarch64
     hostname: comet
     restart: always
     ports:
       - "8080:8080"
     expose: [8080]
     depends_on:
+      mariadb:
+        condition: service_started
       mqtt-client:
         condition: service_started
-    volumes:
-      - ./misc/mqtt.csv:/usr/src/comet/mqtt.csv
     network_mode: bridge
