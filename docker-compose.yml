@@ -37,9 +37,6 @@ services:
     hostname: mariadb
     command: --init-file /docker-entrypoint-initdb.d/setup.sql
     restart: always
-    depends_on:
-      mqtt:
-        condition: service_started
     ports:
       - "3306:3306"
     expose: [3306]
