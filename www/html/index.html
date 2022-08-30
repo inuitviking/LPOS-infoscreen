@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Title</title>
+	</head>
+	<body>
+		<div id="container">Initial Text</div>
+
+		<script type="text/javascript">
+			function getJson(url) {
+				fetch(url)
+					.then(res => res.json())
+					.then(out =>
+						console.log('Checkout this JSON! ', out))
+					.catch(err => throw err);
+			}
+
+			setTimeout(getJson('http://192.168.80.12:8080/bpm'), 1000);
+		</script>
+	</body>
+</html>
