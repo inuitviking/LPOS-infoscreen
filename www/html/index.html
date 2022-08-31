@@ -3,21 +3,26 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Title</title>
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 	</head>
 	<body>
 		<div id="container">Initial Text</div>
 
 		<script type="text/javascript">
-			function httpGet(url) {
-				const xhttp = new XMLHttpRequest();
-				xhttp.onload = function () {
-					document.getElementById("container").innerText = this.responseText;
-				}
-				xhttp.open("GET", url);
-				xhttp.send();
+			var interval;
+			function callAjax() {
+				$.ajax({
+					type: 'POST',
+					url: 'bpm.handler.php?q=bpm',
+					data: $(this).serialize(),
+					dataType: 'json',
+					success: function (data) {
+						$('#hidden').val(data);// first set the value
+						interval = setTimeout(callAjax, 1000);
+					}
+				});
 			}
-
-			setTimeout(httpGet('https://10.135.16.54/bpm.handler.php?q=bpm'), 1000);
+			callAjax();
 		</script>
 	</body>
 </html>
