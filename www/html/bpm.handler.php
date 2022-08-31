@@ -22,11 +22,7 @@ $data = "";
 if ($q !== "") {
 	$q = strtolower($q);
 	if ($q == "bpm") {
-		$ch = curl_init("http://localhost:8080/bpm");
-		curl_setopt($ch, CURLOPT_HEADER, 0);
-		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-		$data = curl_exec($ch);
-		curl_close($ch);
+		$data = file_get_contents("http://localhost:8080/bpm");
 	} else {
 		$data = "No result";
 	}
