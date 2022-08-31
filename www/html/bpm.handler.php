@@ -34,9 +34,11 @@ $alertStatus = 'alert-secondary';
 		<?php
 		$count = 0;
 		foreach ($beds as $bed) {
-			if ($bed['bpm'] > 130) {
-				$alertStatus = 'alert-danger';
-			}
+			$alertStatus =
+				$bed['bpm'] <= 40 ? 'alert-danger' :
+				($bed['bpm'] > 40 ? 'alert-warning' :
+				($bed['bpm'] > 50 ? 'alert-success' :
+				'alert-danger' ));
 
 			?>
 			<div class="column bed alert <?php echo $alertStatus ?>">
