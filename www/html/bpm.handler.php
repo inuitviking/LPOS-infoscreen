@@ -28,4 +28,4 @@ if ($q !== "") {
 	}
 }
 
-print_r($data);
+echo "asdf";
