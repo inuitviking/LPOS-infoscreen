@@ -22,7 +22,7 @@ services:
     ports:
       - "80:80"
       - "443:443"
-    expose: [80,443]
+    expose: [80,443,3306]
     volumes:
       - ./.docker/httpd/conf/httpd.conf:/etc/httpd/conf/httpd.conf
         #      - ./.docker/httpd/conf.d/infoscreen.conf:/etc/httpd/conf.d/infoscreen.conf
