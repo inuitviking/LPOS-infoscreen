@@ -9,8 +9,8 @@
 		<div id="container">Initial Text</div>
 
 		<script type="text/javascript">
-			var interval;
-			function callAjax() {
+			var interval = 1000;  // 1000 = 1 second, 3000 = 3 seconds
+			function doAjax() {
 				$.ajax({
 					type: 'POST',
 					url: 'bpm.handler.php?q=bpm',
@@ -18,11 +18,15 @@
 					dataType: 'json',
 					success: function (data) {
 						$('#container').val(data);// first set the value
-						interval = setTimeout(callAjax, 1000);
+					},
+					complete: function (data) {
+						// Schedule the next
+						setTimeout(doAjax, interval);
 					}
 				});
 			}
-			callAjax();
+			setTimeout(doAjax, interval);
+
 		</script>
 	</body>
 </html>
