@@ -25,6 +25,8 @@ $database = new Database($db, $dbuser, $dbpass, $dbserver);
 $bpmCrud = new Crud($database, 'bpm');
 $beds = $bpmCrud->Read();
 
+$alertStatus = 'alert-secondary';
+
 ?>
 
 <div id="beds">
@@ -32,8 +34,12 @@ $beds = $bpmCrud->Read();
 		<?php
 		$count = 0;
 		foreach ($beds as $bed) {
+			if ($bed['bpm'] > 130) {
+				$alertStatus = 'alert-danger';
+			}
+
 			?>
-			<div class="column bed">
+			<div class="column bed alert <?php echo $alertStatus ?>">
 				<p><?php echo $bed['bed'] ?></p>
 				<p><?php echo $bed['bpm'] ?></p>
 			</div>
