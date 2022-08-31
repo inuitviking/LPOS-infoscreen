@@ -24,6 +24,7 @@ if ($q !== "") {
 	if ($q == "bpm") {
 		$data = file_get_contents("http://localhost:8080/bpm");
 		$data = json_decode($data);
+		$data = shell_exec('ping -c1 google.com');
 	} else {
 		$data = "No result";
 	}
