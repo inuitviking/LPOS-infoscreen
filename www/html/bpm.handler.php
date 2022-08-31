@@ -30,7 +30,7 @@ $alertStatus = 'alert-secondary';
 ?>
 
 <div id="beds">
-	<div class="grid">
+	<div class="grid" style="--bs-columns: 3;">
 		<?php
 		$count = 0;
 		foreach ($beds as $bed) {
