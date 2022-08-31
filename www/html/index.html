@@ -12,10 +12,9 @@
 			var interval = 1000;  // 1000 = 1 second, 3000 = 3 seconds
 			function doAjax() {
 				$.ajax({
-					type: 'POST',
+					type: 'GET',
 					url: 'bpm.handler.php',
-					data: $(this).serialize(),
-					dataType: 'json',
+					dataType: 'text',
 					success: function (data) {
 						$('#container').innerHTML(data);// first set the value
 					},
