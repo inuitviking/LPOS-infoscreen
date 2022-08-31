@@ -40,8 +40,6 @@ $alertStatus = 'alert-secondary';
 				default => 'alert-danger',
 			};
 
-
-
 			?>
 			<div class="column bed alert <?php echo $alertStatus ?>">
 				<p><?php echo $bed['bed'] ?></p>
