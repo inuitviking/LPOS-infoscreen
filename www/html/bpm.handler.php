@@ -30,7 +30,7 @@ $alertStatus = 'alert-secondary';
 ?>
 
 <div id="beds">
-	<div class="row">
+	<div class="grid">
 		<?php
 		$count = 0;
 		foreach ($beds as $bed) {
@@ -42,9 +42,9 @@ $alertStatus = 'alert-secondary';
 			};
 
 			?>
-			<div class="column col-3 bed alert <?php echo $alertStatus ?>">
+			<div class="column g-col-6 bed alert <?php echo $alertStatus ?>">
 				<p class="fw-bold fs-5"><?php echo $bed['bed'] ?></p>
-				<p>BPM: <span class="fs-4"><?php echo $bed['bpm'] ?></span></p>
+				<p>BPM: <span class="fs-41"><?php echo $bed['bpm'] ?></span></p>
 			</div>
 			<?php
 		}
