@@ -23,14 +23,7 @@ $data = "";
 $database = new Database($db, $dbuser, $dbpass, $dbserver);
 $bpmCrud = new Crud($database, 'bpm');
 
-if ($q !== "") {
-	$q = strtolower($q);
-	if ($q == "bpm") {
 //		$data = $bpmCrud->Read(['*']);
-		$data = "{'test' => 'test'}";
-	} else {
-		$data = "No result";
-	}
-}
+$data = "{'test' => 'test'}";
 
 echo $data;
