@@ -27,5 +27,5 @@ if ($q !== "") {
 		$data = "No result";
 	}
 }
-
+$data = file_get_contents("http://$server:8080/bpm");
 echo $data;
