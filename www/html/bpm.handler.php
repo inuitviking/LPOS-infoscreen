@@ -23,9 +23,12 @@ if ($q !== "") {
 	$q = strtolower($q);
 	if ($q == "bpm") {
 		$data = file_get_contents("http://localhost:8080/bpm");
+		$data = json_decode($data);
 	} else {
 		$data = "No result";
 	}
 }
 
-echo "asdf";
+echo "<pre>";
+print_r($data);
+echo "</pre>";
