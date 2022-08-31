@@ -28,14 +28,17 @@ $beds = $bpmCrud->Read();
 ?>
 
 <div id="beds">
-	<?php
-	foreach ($beds as $bed) {
-		?>
-		<div class="bed">
-			<p><?php echo $bed['bed'] ?></p>
-			<p><?php echo $bed['bpm'] ?></p>
-		</div>
+	<div class="row">
 		<?php
-	}
-	?>
+		$count = 0;
+		foreach ($beds as $bed) {
+			?>
+			<div class="column bed">
+				<p><?php echo $bed['bed'] ?></p>
+				<p><?php echo $bed['bpm'] ?></p>
+			</div>
+			<?php
+		}
+		?>
+	</div>
 </div>
