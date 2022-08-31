@@ -22,7 +22,7 @@ $data = "";
 if ($q !== "") {
 	$q = strtolower($q);
 	if ($q == "bpm") {
-		$ch = curl_init("http://10.135.16.54:8080/bpm");
+		$ch = curl_init("http://localhost:8080/bpm");
 		curl_setopt($ch, CURLOPT_HEADER, 0);
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 		$data = curl_exec($ch);
