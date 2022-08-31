@@ -9,14 +9,14 @@
 
 	</head>
 	<body>
-		<main class="container">Loading...</main>
+		<main id="container" class="container">Loading...</main>
 
 		<script type="text/javascript">
 			function mac() {
 				var xmlhttp = new XMLHttpRequest();
 				xmlhttp.onreadystatechange = function() {
 					if (this.readyState === 4 && this.status === 200) {
-						document.getElementsByClassName("container").innerHTML = this.responseText;
+						document.getElementById("container").innerHTML = this.responseText;
 					}
 				};
 				xmlhttp.open("GET", "bpm.handler.php", true);
