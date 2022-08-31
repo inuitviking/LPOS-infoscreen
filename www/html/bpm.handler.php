@@ -22,6 +22,6 @@ $database = new Database($db, $dbuser, $dbpass, $dbserver);
 $bpmCrud = new Crud($database, 'bpm');
 
 //		$data = $bpmCrud->Read(['*']);
-$data = "{'test' => 'test'}";
+$data = "test";
 
 echo $data;
