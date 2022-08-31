@@ -41,7 +41,7 @@ $alertStatus = 'alert-secondary';
 				default => 'alert-danger',
 			};
 
-			?><div class="col-md-4 me-4 ms-4 pe-4 ps-4 offset-md-4 bed alert <?php echo $alertStatus ?>">
+			?><div class="col-md-3 me-4 ms-4 bed alert <?php echo $alertStatus ?>">
 			<p class="fw-bold fs-5"><?php echo str_replace('_', ' ', $bed['bed']) ?></p>
 			<p>BPM: <span class="fs-41"><?php echo $bed['bpm'] ?></span></p>
 		</div>
