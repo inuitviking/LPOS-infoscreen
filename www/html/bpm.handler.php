@@ -41,7 +41,7 @@ $alertStatus = 'alert-secondary';
 			};
 
 			?>
-			<div class="column bed alert <?php echo $alertStatus ?>">
+			<div class="column col-sm bed alert <?php echo $alertStatus ?>">
 				<p><?php echo $bed['bed'] ?></p>
 				<p><?php echo $bed['bpm'] ?></p>
 			</div>
