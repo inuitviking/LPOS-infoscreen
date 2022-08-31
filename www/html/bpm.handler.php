@@ -23,6 +23,19 @@ $db			= 'infoscreen';
 
 $database = new Database($db, $dbuser, $dbpass, $dbserver);
 $bpmCrud = new Crud($database, 'bpm');
-$data = $bpmCrud->Read(['*']);
+$beds = $bpmCrud->Read();
 
-print_r($data);
+?>
+
+<div id="beds">
+	<?php
+	foreach ($beds as $bed) {
+		?>
+		<div class="bed">
+			<p><?php echo $bed['bed'] ?></p>
+			<p><?php echo $bed['bpm'] ?></p>
+		</div>
+		<?php
+	}
+	?>
+</div>
