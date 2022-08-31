@@ -16,7 +16,7 @@
 					url: 'bpm.handler.php',
 					dataType: 'text',
 					success: function (data) {
-						$('#container').innerHTML(data);// first set the value
+						$('#container').val(data);// first set the value
 					},
 					complete: function (data) {
 						// Schedule the next
