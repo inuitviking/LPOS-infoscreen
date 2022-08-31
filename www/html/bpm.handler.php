@@ -43,7 +43,7 @@ $alertStatus = 'alert-secondary';
 
 			?>
 			<div class="column col-3 bed alert <?php echo $alertStatus ?>">
-				<p><?php echo $bed['bed'] ?></p>
+				<p class="fw-bold fs-3"><?php echo $bed['bed'] ?></p>
 				<p><?php echo $bed['bpm'] ?></p>
 			</div>
 			<?php
