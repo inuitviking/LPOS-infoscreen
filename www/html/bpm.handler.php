@@ -35,6 +35,7 @@ $alertStatus = 'alert-secondary';
 		$count = 0;
 		foreach ($beds as $bed) {
 			$alertStatus = match (true) {
+				$bed['bpm'] <= 40 => 'alert-danger',
 				$bed['bpm'] <= 50 => 'alert-warning',
 				$bed['bpm'] <= 130 => 'alert-success',
 				default => 'alert-danger',
