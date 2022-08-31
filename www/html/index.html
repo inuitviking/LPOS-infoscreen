@@ -17,7 +17,7 @@
 					data: $(this).serialize(),
 					dataType: 'json',
 					success: function (data) {
-						$('#hidden').val(data);// first set the value
+						$('#container').val(data);// first set the value
 						interval = setTimeout(callAjax, 1000);
 					}
 				});
