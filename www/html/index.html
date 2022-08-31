@@ -9,22 +9,18 @@
 		<div id="container">Initial Text</div>
 
 		<script type="text/javascript">
-			var interval = 1000;  // 1000 = 1 second, 3000 = 3 seconds
-			function doAjax() {
-				$.ajax({
-					type: 'GET',
-					url: 'bpm.handler.php',
-					dataType: 'text',
-					success: function (data) {
-						$('#container').val(data);// first set the value
-					},
-					complete: function (data) {
-						// Schedule the next
-						setTimeout(doAjax, interval);
-					}
-				});
+			function mac() {
+				var xmlhttp = new XMLHttpRequest();
+				xmlhttp.onreadystatechange = function() {
+					xmlhttp.responseText;
+				};
+				xmlhttp.open("GET", "bpm.handler.php", true);
+				xmlhttp.send();
+
 			}
-			setTimeout(doAjax, interval);
+
+			mac();
+			setInterval(mac, 1000);
 
 		</script>
 	</body>
