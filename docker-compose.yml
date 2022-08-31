@@ -16,7 +16,7 @@ services:
       - ./.docker/mosquitto/passwords:/mosquitto/passwords
     network_mode: bridge
   httpd:
-    image: inuitviking/rockyhttpd:2.4.51-aarch64
+    image: inuitviking/rockyphphttpd:8.0-2.4.51-aarch64
     hostname: httpd
     restart: always
     ports:
@@ -25,7 +25,7 @@ services:
     expose: [80,443]
     volumes:
       - ./.docker/httpd/conf/httpd.conf:/etc/httpd/conf/httpd.conf
-      - ./.docker/httpd/conf.d/infoscreen.conf:/etc/httpd/conf.d/infoscreen.conf
+        #      - ./.docker/httpd/conf.d/infoscreen.conf:/etc/httpd/conf.d/infoscreen.conf
       - ./.docker/httpd/certs:/etc/httpd/certs
       - ./.docker/httpd/log:/var/log/httpd
       - ./www:/var/www
