@@ -32,4 +32,4 @@ if ($q !== "") {
 	}
 }
 
-echo $data;
+print_r($data);
