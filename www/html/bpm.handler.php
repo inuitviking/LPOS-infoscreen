@@ -13,18 +13,20 @@
  * - Skúli
  *   - 10.135.16.54
  */
- $server = '10.135.16.54';
-//$server = '127.0.0.1';
+$dbserver	= '10.135.16.54';
+$dbuser		= 'Ahmoo';
+$dbpass		= '?&1Q%R>y[lHp,W6KABZy?%l)v#_^';
+$db			= 'infoscreen';
 $q = $_REQUEST["q"];
-
 $data = "";
+
+$database = new Database($db, $dbuser, $dbpass, $dbserver);
+$bpmCrud = new Crud($database, 'bpm');
 
 if ($q !== "") {
 	$q = strtolower($q);
 	if ($q == "bpm") {
-//		$data = file_get_contents("http://localhost:8080/bpm");
-//		$data = json_decode($data);
-		$data = shell_exec('ping -c1 google.com');
+		$data = $bpmCrud->Read(['*']);
 	} else {
 		$data = "No result";
 	}
