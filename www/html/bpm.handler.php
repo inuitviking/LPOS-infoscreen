@@ -18,8 +18,8 @@ $dbuser		= 'Ahmoo';
 $dbpass		= '?&1Q%R>y[lHp,W6KABZy?%l)v#_^';
 $db			= 'infoscreen';
 
-$database = new Database($db, $dbuser, $dbpass, $dbserver);
-$bpmCrud = new Crud($database, 'bpm');
+//$database = new Database($db, $dbuser, $dbpass, $dbserver);
+//$bpmCrud = new Crud($database, 'bpm');
 
 //		$data = $bpmCrud->Read(['*']);
 $data = "test";
