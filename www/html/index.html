@@ -12,11 +12,12 @@
 			function mac() {
 				var xmlhttp = new XMLHttpRequest();
 				xmlhttp.onreadystatechange = function() {
-					xmlhttp.responseText;
+					if (this.readyState === 4 && this.status === 200) {
+						document.getElementById("container").innerHTML = this.responseText;
+					}
 				};
 				xmlhttp.open("GET", "bpm.handler.php", true);
 				xmlhttp.send();
-
 			}
 
 			mac();
