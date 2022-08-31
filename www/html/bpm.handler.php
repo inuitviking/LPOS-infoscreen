@@ -26,10 +26,11 @@ $bpmCrud = new Crud($database, 'bpm');
 if ($q !== "") {
 	$q = strtolower($q);
 	if ($q == "bpm") {
-		$data = $bpmCrud->Read(['*']);
+//		$data = $bpmCrud->Read(['*']);
+		$data = "{'test' => 'test'}";
 	} else {
 		$data = "No result";
 	}
 }
 
-print_r($data);
+echo $data;

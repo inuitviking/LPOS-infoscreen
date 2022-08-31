@@ -15,7 +15,7 @@
 					type: 'POST',
 					url: 'bpm.handler.php?q=bpm',
 					data: $(this).serialize(),
-					dataType: 'json',
+					dataType: 'text',
 					success: function (data) {
 						$('#container').val(data);// first set the value
 						interval = setTimeout(callAjax, 1000);
