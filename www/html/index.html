@@ -17,7 +17,7 @@
 					data: $(this).serialize(),
 					dataType: 'json',
 					success: function (data) {
-						$('#container').val(data);// first set the value
+						$('#container').innerHTML(data);// first set the value
 					},
 					complete: function (data) {
 						// Schedule the next
