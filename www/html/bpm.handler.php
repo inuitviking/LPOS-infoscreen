@@ -23,8 +23,6 @@ $db			= 'infoscreen';
 
 $database = new Database($db, $dbuser, $dbpass, $dbserver);
 $bpmCrud = new Crud($database, 'bpm');
+$data = $bpmCrud->Read(['*']);
 
-		$data = $bpmCrud->Read(['*']);
-$data = "test";
-
-echo $data;
+print_r($data);
