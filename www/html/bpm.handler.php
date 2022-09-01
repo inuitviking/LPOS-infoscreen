@@ -44,6 +44,7 @@ $alertStatus = 'alert-secondary';
 			?><div class="col-md-3 me-4 ms-4 bed alert <?php echo $alertStatus ?>">
 			<p class="fw-bold fs-5"><?php echo str_replace('_', ' ', $bed['bed']) ?></p>
 			<p>BPM: <span class="fs-41"><?php echo $bed['bpm'] ?></span></p>
+			<p>Call: <?php echo $bed['call']; ?></p>
 		</div>
 		<?php
 		}
