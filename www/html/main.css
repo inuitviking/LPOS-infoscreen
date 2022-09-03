@@ -22,17 +22,15 @@
 }
 
 .bed .bell {
+	display: block;
 	float: right;
 	font-size: 3rem;
-	animation: bell 1s 1s both infinite;
-	-webkit-animation: bell 1s 1s both infinite;
+	animation: bell 0.5s both infinite;
 }
 
 @keyframes bell {
-	0% { transform: rotate(0); }
-	10% { transform: rotate(30deg); }
-	20% { transform: rotate(0); }
-	80% { transform: rotate(0); }
-	90% { transform: rotate(-30deg); }
-	100% { transform: rotate(0); }
+	0%	{ transform: rotate(0); }
+	25%	{ transform: rotate(30deg); }
+	75%	{ transform: rotate(-30deg); }
+	100	{ transform: rotate(0); }
 }
