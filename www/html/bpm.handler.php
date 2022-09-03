@@ -31,6 +31,7 @@ $beds = $bpmCrud->Read();
 
 // Set the default alert status
 $alertStatus = 'alert-danger';
+$alertAnimation = 'patient-danger';
 
 ?>
 <div id="container" class="container">
@@ -43,14 +44,20 @@ $alertStatus = 'alert-danger';
 			echo '<div class="row">';
 			}
 
-		$alertStatus = match (true) {
-			$bed['bpm'] <= 40 => 'alert-danger',
-			$bed['bpm'] <= 50 => 'alert-warning',
-			$bed['bpm'] <= 130 => 'alert-success',
-			default => 'alert-danger',
-		};
+		if ($bed['bpm'] <= 40) {
+			$alertStatus	= 'alert-danger';
+			$alertAnimation	= 'patient-danger';
+		} else if ($bed['bpm'] <= 50) {
+			$alertStatus	= 'alert-warning';
+			$alertAnimation	= 'patient-warning';
+		} else if ($bed['bpm'] <= 130) {
+			$alertStatus	= 'alert-success';
+			$alertAnimation	= 'patient-okay';
+		} else {
+			$alertAnimation	= 'patient-danger';
+		}
 
-		?>	<div class="bed alert <?php echo $alertStatus ?>">
+		?>	<div class="bed alert <?php echo "$alertStatus $alertAnimation" ?>">
 			<p class="fw-bold fs-5 text-center"><?php echo str_replace('_', ' ', $bed['bed']) ?></p>
 			<p class="bpm">BPM: <span class="fs-4"><?php echo $bed['bpm'] ?></span></p>
 			<?php

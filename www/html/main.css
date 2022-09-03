@@ -34,8 +34,12 @@
 	font-size: 3rem;
 }
 
-.warning {
+.patient-warning {
 	animation: pulse 0.5s both infinite;
+}
+
+.patient-danger {
+	animation: pulse 0.25s both infinite;
 }
 
 @keyframes bell {
