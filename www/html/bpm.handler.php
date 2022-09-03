@@ -54,8 +54,14 @@ $alertStatus = 'alert-danger';
 			<p class="fw-bold fs-5 text-center"><?php echo str_replace('_', ' ', $bed['bed']) ?></p>
 			<p class="bpm">BPM: <span class="fs-4"><?php echo $bed['bpm'] ?></span></p>
 			<?php
+			// Show a bell when nurse is called
 			if ($bed['call'] == 1) {
 				echo '<i class="bell bi bi-bell-fill"></i>';
+			}
+
+			// Show a warning icon when bad pulses are reached.
+			if ($bed['bpm'] <= 50 || $bed['bpm'] > 130) {
+				echo '<i class="warning bi bi-exclamation-circle-fill"></i>';
 			}
 			?>
 		</div>

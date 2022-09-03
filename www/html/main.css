@@ -28,6 +28,12 @@
 	animation: bell 0.5s both infinite;
 }
 
+.bed .warning {
+	display: block;
+	float: right;
+	font-size: 3rem;
+}
+
 @keyframes bell {
 	0%	{ transform: rotate(0); }
 	25%	{ transform: rotate(30deg); }
