@@ -16,7 +16,7 @@ require_once 'classes/CRUD.php';
  * - Skúli
  *   - 10.135.16.54
  */
-$dbserver	= '10.135.16.54';
+$dbserver	= '192.168.1.222';
 $dbuser		= 'Ahmoo';
 $dbpass		= '?&1Q%R>y[lHp,W6KABZy?%l)v#_^';
 $db			= 'infoscreen';
@@ -41,12 +41,13 @@ $alertStatus = 'alert-secondary';
 				default => 'alert-danger',
 			};
 
-			?><div class="col-md-3 me-4 ms-4 bed alert <?php echo $alertStatus ?>">
+			?><div class="col-md-4 col-gap bed alert <?php echo $alertStatus ?>">
 			<p class="fw-bold fs-5"><?php echo str_replace('_', ' ', $bed['bed']) ?></p>
-			<p>BPM: <span class="fs-41"><?php echo $bed['bpm'] ?></span></p>
+			<p">BPM: <span class="fs-41"><?php echo $bed['bpm'] ?></span></p>
 			<p>Call: <?php echo $bed['call']; ?></p>
 		</div>
 		<?php
+			$count++;
 		}
 		?>
 	</div>
