@@ -25,17 +25,18 @@
 	display: block;
 	float: right;
 	font-size: 3rem;
-	animation: bell 0.5s both infinite;
+	animation: bell 1s both infinite;
 }
 
 .bed .warning-icon {
 	display: block;
 	float: right;
 	font-size: 3rem;
+	animation: bell 0.5s both infinite;
 }
 
 .patient-warning {
-	animation: pulse 0.5s both infinite;
+	animation: pulse 1s both infinite;
 }
 
 .patient-danger {
@@ -50,6 +51,7 @@
 }
 
 @keyframes pulse {
-	0%		{ transform: scale(20%); }
-	100%	{ transform: scale(0%); }
+	0%		{ transform: scale(100%); }
+	50%		{ transform: scale(102%); }
+	100%	{ transform: scale(100%); }
 }
