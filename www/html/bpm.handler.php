@@ -33,12 +33,9 @@ $beds = $bpmCrud->Read();
 $alertStatus = 'alert-danger';
 
 ?>
-<div id="container" class="container"
-	style="display: grid;
-		grid-template-columns: auto;
-		padding: 8px;">
+<div id="container" class="container">
 	<?php
-	// Counter for
+	// Counter for making rows.
 	$count = 0;
 	foreach ($beds as $bed) {
 
@@ -53,15 +50,12 @@ $alertStatus = 'alert-danger';
 			default => 'alert-danger',
 		};
 
-		?>	<div class="alert <?php echo $alertStatus ?>"
-		style="margin-left: 4px;
-			margin-right: 4px;
-			width: calc( 100% / 3 - 8px );">
+		?>	<div class="bed alert <?php echo $alertStatus ?>">
 			<p class="fw-bold fs-5 text-center"><?php echo str_replace('_', ' ', $bed['bed']) ?></p>
-			<p style="float: left;">BPM: <span class="fs-4"><?php echo $bed['bpm'] ?></span></p>
+			<p class="bpm">BPM: <span class="fs-4"><?php echo $bed['bpm'] ?></span></p>
 			<?php
 			if ($bed['call'] == 1) {
-				echo '<i class="bi bi-bell-fill" style="float: right; font-size: 3rem;"></i>';
+				echo '<i class="bi bi-bell-fill"></i>';
 			}
 			?>
 		</div>

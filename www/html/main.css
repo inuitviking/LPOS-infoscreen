@@ -5,3 +5,33 @@
 	padding:25px;
 }
 
+#container {
+	display: grid;
+	grid-template-columns: auto;
+	padding: 8px;
+}
+
+.bed {
+	margin-left: 4px;
+	margin-right: 4px;
+	width: calc( 100% / 3 - 8px );
+}
+
+.bed.bpm {
+	float: left;
+}
+
+.bed.bi {
+	float: right;
+	font-size: 3rem;
+	animation: bell 1s 1s both infinite;
+}
+
+@keyframes bell {
+	0% { transform: rotate(0); }
+	10% { transform: rotate(30deg); }
+	20% { transform: rotate(0); }
+	80% { transform: rotate(0); }
+	90% { transform: rotate(-30deg); }
+	100% { transform: rotate(0); }
+}
