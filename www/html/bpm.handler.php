@@ -53,8 +53,10 @@ $alertStatus = 'alert-danger';
 			default => 'alert-danger',
 		};
 
-		?>	<div class=" alert <?php echo $alertStatus ?>"
-		style="margin: 20px;">
+		?>	<div class="alert <?php echo $alertStatus ?>"
+		style="margin-left: 4.166px;
+			margin-right: 4.166px;
+			width: calc( 100% / 4 );;">
 			<p class="fw-bold fs-5"><?php echo str_replace('_', ' ', $bed['bed']) ?></p>
 			<p">BPM: <span class="fs-41"><?php echo $bed['bpm'] ?></span></p>
 			<p>Call: <?php echo $bed['call']; ?></p>
