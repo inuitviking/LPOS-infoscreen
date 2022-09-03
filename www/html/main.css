@@ -17,11 +17,11 @@
 	width: calc( 100% / 3 - 8px );
 }
 
-.bed.bpm {
+.bed .bpm {
 	float: left;
 }
 
-.bed.bi {
+.bed .bell {
 	float: right;
 	font-size: 3rem;
 	animation: bell 1s 1s both infinite;

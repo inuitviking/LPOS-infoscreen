@@ -55,7 +55,7 @@ $alertStatus = 'alert-danger';
 			<p class="bpm">BPM: <span class="fs-4"><?php echo $bed['bpm'] ?></span></p>
 			<?php
 			if ($bed['call'] == 1) {
-				echo '<i class="bi bi-bell-fill"></i>';
+				echo '<i class="bell bi bi-bell-fill"></i>';
 			}
 			?>
 		</div>
