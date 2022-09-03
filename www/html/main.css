@@ -28,15 +28,24 @@
 	animation: bell 0.5s both infinite;
 }
 
-.bed .warning {
+.bed .warning-icon {
 	display: block;
 	float: right;
 	font-size: 3rem;
 }
 
+.warning {
+	animation: pulse 0.5s both infinite;
+}
+
 @keyframes bell {
-	0%	{ transform: rotate(0); }
-	25%	{ transform: rotate(30deg); }
-	75%	{ transform: rotate(-30deg); }
-	100	{ transform: rotate(0); }
+	0%		{ transform: rotate(0); }
+	25%		{ transform: rotate(30deg); }
+	75%		{ transform: rotate(-30deg); }
+	100%	{ transform: rotate(0); }
+}
+
+@keyframes pulse {
+	0%		{ transform: scale(20%); }
+	100%	{ transform: scale(0%); }
 }

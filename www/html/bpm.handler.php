@@ -61,7 +61,7 @@ $alertStatus = 'alert-danger';
 
 			// Show a warning icon when bad pulses are reached.
 			if ($bed['bpm'] <= 50 || $bed['bpm'] > 130) {
-				echo '<i class="warning bi bi-exclamation-circle-fill"></i>';
+				echo '<i class="warning-icon bi bi-exclamation-circle-fill"></i>';
 			}
 			?>
 		</div>
