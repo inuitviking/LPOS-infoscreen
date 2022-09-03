@@ -74,8 +74,8 @@ $alertAnimation = 'patient-danger';
 			// Play warning audio
 			if ($bed['bpm'] <= 50) {
 				?>
-				<audio>
-					<source src="audio/warning.mp3">
+				<audio autoplay>
+					<source src="audio/warning.mp3" type="audio/mpeg">
 					Your browser isn't invited for super fun audio time.
 				</audio>
 				<?php
@@ -84,13 +84,12 @@ $alertAnimation = 'patient-danger';
 			// Play danger audio
 			if ($bed['bpm'] <= 50) {
 				?>
-				<audio>
-					<source src="audio/danger.mp3">
+				<audio autoplay>
+					<source src="audio/danger.mp3" type="audio/mpeg">
 					Your browser isn't invited for super fun audio time.
 				</audio>
 				<?php
 			}
-			?>
 			?>
 		</div>
 	<?php
