@@ -1,5 +1,6 @@
 <?php
 
+// Require necessary classes
 require_once 'classes/Database.php';
 require_once 'classes/CRUD.php';
 
@@ -21,34 +22,46 @@ $dbuser		= 'Ahmoo';
 $dbpass		= '?&1Q%R>y[lHp,W6KABZy?%l)v#_^';
 $db			= 'infoscreen';
 
+// Connect to database and the bpm table
 $database = new Database($db, $dbuser, $dbpass, $dbserver);
 $bpmCrud = new Crud($database, 'bpm');
+
+// Read from the bpm table.
 $beds = $bpmCrud->Read();
 
-$alertStatus = 'alert-secondary';
+// Set the default alert status
+$alertStatus = 'alert-danger';
 
 ?>
+<div id="beds" class="container">
+	<?php
+	// Counter for
+	$count = 0;
+	foreach ($beds as $bed) {
 
-<div id="beds">
-	<div class="row">
-		<?php
-		$count = 0;
-		foreach ($beds as $bed) {
-			$alertStatus = match (true) {
-				$bed['bpm'] <= 40 => 'alert-danger',
-				$bed['bpm'] <= 50 => 'alert-warning',
-				$bed['bpm'] <= 130 => 'alert-success',
-				default => 'alert-danger',
-			};
+		if ($count == 0) {
+			echo '<div class="row">';
+			}
 
-			?><div class="col-md-4 col-gap bed alert <?php echo $alertStatus ?>">
+		$alertStatus = match (true) {
+			$bed['bpm'] <= 40 => 'alert-danger',
+			$bed['bpm'] <= 50 => 'alert-warning',
+			$bed['bpm'] <= 130 => 'alert-success',
+			default => 'alert-danger',
+		};
+
+		?>	<div class="col-md-4 col-gap bed alert <?php echo $alertStatus ?>">
 			<p class="fw-bold fs-5"><?php echo str_replace('_', ' ', $bed['bed']) ?></p>
 			<p">BPM: <span class="fs-41"><?php echo $bed['bpm'] ?></span></p>
 			<p>Call: <?php echo $bed['call']; ?></p>
 		</div>
-		<?php
+	<?php
+		if ($count == 2) {
+			echo '</div>';
+			$count = 0;
+		} else {
 			$count++;
 		}
-		?>
-	</div>
+	}
+	?>
 </div>
