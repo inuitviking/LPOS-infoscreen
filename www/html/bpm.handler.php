@@ -33,7 +33,10 @@ $beds = $bpmCrud->Read();
 $alertStatus = 'alert-danger';
 
 ?>
-<div id="beds" class="container">
+<div class="container"
+	style="display: grid;
+		grid-template-columns: auto;
+		padding: 8px;">
 	<?php
 	// Counter for
 	$count = 0;
@@ -50,7 +53,7 @@ $alertStatus = 'alert-danger';
 			default => 'alert-danger',
 		};
 
-		?>	<div class="col-md-3 bed alert <?php echo $alertStatus ?>"
+		?>	<div class=" alert <?php echo $alertStatus ?>"
 		style="margin: 20px;">
 			<p class="fw-bold fs-5"><?php echo str_replace('_', ' ', $bed['bed']) ?></p>
 			<p">BPM: <span class="fs-41"><?php echo $bed['bpm'] ?></span></p>
