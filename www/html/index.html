@@ -12,14 +12,14 @@
 
 	</head>
 	<body>
-		<main style="font-family: 'Roboto', sans-serif; padding:25px; background-color: red;">Loading...</main>
+		<main id="main" style="font-family: 'Roboto', sans-serif; padding:25px; background-color: red;">Loading...</main>
 
 		<script type="text/javascript">
 			function mac() {
 				var xmlhttp = new XMLHttpRequest();
 				xmlhttp.onreadystatechange = function() {
 					if (this.readyState === 4 && this.status === 200) {
-						document.getElementById("container").innerHTML = this.responseText;
+						document.getElementById("main").innerHTML = this.responseText;
 					}
 				};
 				xmlhttp.open("GET", "bpm.handler.php", true);
