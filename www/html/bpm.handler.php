@@ -33,7 +33,7 @@ $beds = $bpmCrud->Read();
 $alertStatus = 'alert-danger';
 
 ?>
-<div id="container"
+<div id="container" class="container"
 	style="display: grid;
 		grid-template-columns: auto;
 		padding: 8px;">
