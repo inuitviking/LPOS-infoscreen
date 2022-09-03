@@ -70,6 +70,27 @@ $alertAnimation = 'patient-danger';
 			if ($bed['bpm'] <= 50 || $bed['bpm'] > 130) {
 				echo '<i class="warning-icon bi bi-exclamation-circle-fill"></i>';
 			}
+
+			// Play warning audio
+			if ($bed['bpm'] <= 50) {
+				?>
+				<audio>
+					<source src="audio/warning.mp3">
+					Your browser isn't invited for super fun audio time.
+				</audio>
+				<?php
+			}
+
+			// Play danger audio
+			if ($bed['bpm'] <= 50) {
+				?>
+				<audio>
+					<source src="audio/danger.mp3">
+					Your browser isn't invited for super fun audio time.
+				</audio>
+				<?php
+			}
+			?>
 			?>
 		</div>
 	<?php
