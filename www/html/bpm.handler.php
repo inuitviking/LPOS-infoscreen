@@ -57,9 +57,13 @@ $alertStatus = 'alert-danger';
 		style="margin-left: 4px;
 			margin-right: 4px;
 			width: calc( 100% / 3 - 8px );">
-			<p class="fw-bold fs-5"><?php echo str_replace('_', ' ', $bed['bed']) ?></p>
-			<p class="float-left">BPM: <span class="fs-41"><?php echo $bed['bpm'] ?></span></p>
-			<p>Call: <?php echo $bed['call']; ?></p>
+			<p class="fw-bold fs-5 text-center"><?php echo str_replace('_', ' ', $bed['bed']) ?></p>
+			<p style="float: left;">BPM: <span class="fs-4"><?php echo $bed['bpm'] ?></span></p>
+			<?php
+			if ($bed['call'] == 1) {
+				echo '<i class="bi bi-bell-fill" style="float: right; font-size: 3rem;"></i>';
+			}
+			?>
 		</div>
 	<?php
 		if ($count == 2) {
